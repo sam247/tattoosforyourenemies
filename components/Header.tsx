@@ -1,13 +1,16 @@
+import Image from "next/image";
 import Link from "next/link";
 
+const NAV = "/images/nav";
+
 const navItems = [
-  { label: "Tattoos", href: "/tattoos" },
-  { label: "Illustrations", href: "/illustrations" },
+  { src: `${NAV}/Tattoos_Title-removebg-preview-768x146.png`, alt: "Tattoos", href: "/tattoos" },
+  { src: `${NAV}/Illustrations-Title.png`, alt: "Illustrations", href: "/illustrations" },
   { label: "Flash", href: "/flash" },
   { label: "Art Show", href: "/art-show" },
-  { label: "Podcast", href: "/podcast" },
-  { label: "About Me", href: "/about" },
-  { label: "Shop", href: "/shop" },
+  { src: `${NAV}/PODCAST-title.png`, alt: "Podcast", href: "/podcast" },
+  { src: `${NAV}/About-me-Title.png`, alt: "About Me", href: "/about" },
+  { src: `${NAV}/Shop-Title.png`, alt: "Shop", href: "/shop" },
 ];
 
 export function Header() {
@@ -16,9 +19,16 @@ export function Header() {
       <div className="mx-auto flex max-w-6xl flex-col items-center gap-4 px-4 py-6">
         <Link
           href="/"
-          className="text-center text-2xl font-bold uppercase tracking-tight text-black transition-all duration-300 hover:text-black/90 hover:drop-shadow-[0_0_16px_rgba(0,0,0,0.12)] md:text-3xl"
+          className="transition-all duration-300 hover:opacity-90 hover:drop-shadow-[0_0_16px_rgba(0,0,0,0.12)]"
         >
-          Tattoos For Your Enemies.
+          <Image
+            src="/Tattoos-for-your-Enemies-Title-EDITED-2048x541.jpg"
+            alt="Tattoos For Your Enemies"
+            width={2048}
+            height={541}
+            className="h-auto w-full max-w-[320px] md:max-w-[400px]"
+            unoptimized
+          />
         </Link>
         <a
           href="https://instagram.com/tattoosforyourenemies"
@@ -40,9 +50,22 @@ export function Header() {
             <Link
               key={item.href}
               href={item.href}
-              className="text-sm font-medium uppercase tracking-wide text-black transition-all duration-300 hover:shadow-[0_0_12px_rgba(0,0,0,0.15)] md:text-base"
+              className="transition-all duration-300 hover:opacity-80 hover:drop-shadow-[0_0_12px_rgba(0,0,0,0.15)]"
             >
-              {item.label}
+              {"src" in item ? (
+                <Image
+                  src={item.src}
+                  alt={item.alt}
+                  width={120}
+                  height={40}
+                  className="h-8 w-auto md:h-10"
+                  unoptimized
+                />
+              ) : (
+                <span className="text-sm font-medium uppercase tracking-wide text-black md:text-base">
+                  {item.label}
+                </span>
+              )}
             </Link>
           ))}
         </nav>
