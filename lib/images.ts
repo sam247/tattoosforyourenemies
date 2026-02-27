@@ -2,9 +2,16 @@
  * Image paths - served from public/images (copied from site_images for deploy)
  */
 const IMG = "/images";
+const NAV = "/images/nav";
+
+export const sectionTitles = {
+  tattoos: `${NAV}/Tattoos_Title-removebg-preview-768x146.png`,
+  flash: `${NAV}/Flash_Title-removebg-preview-300x77.png`,
+  illustrations: `${NAV}/Illustrations-Title.png`,
+};
 
 export const homeImages = {
-  hero: `${IMG}/Wizard-scaled-e1696958163825.jpg`,
+  hero: `${IMG}/Tooth-EDITED-768x893.jpg`,
   tattoos: [
     `${IMG}/The-Charmer-768x960.jpg`,
     `${IMG}/Wizard-768x960.jpg`,

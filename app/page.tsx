@@ -1,27 +1,31 @@
 import Image from "next/image";
 import Link from "next/link";
-import { homeImages } from "@/lib/images";
+import { homeImages, sectionTitles } from "@/lib/images";
 
 function SectionGrid({
-  title,
+  titleSrc,
+  titleAlt,
   images,
   viewMoreHref,
   titleAlign = "center",
 }: {
-  title: string;
+  titleSrc: string;
+  titleAlt: string;
   images: string[];
   viewMoreHref: string;
   titleAlign?: "center" | "left";
 }) {
   return (
     <section className="mx-auto max-w-6xl px-4 py-12">
-      <h2
-        className={`mb-8 text-2xl font-bold uppercase tracking-tight text-black drop-shadow-[0_0_20px_rgba(0,0,0,0.06)] md:text-3xl ${
-          titleAlign === "left" ? "text-left" : "text-center"
-        }`}
+      <div
+        className={`mb-8 flex ${titleAlign === "left" ? "justify-start" : "justify-center"}`}
       >
-        {title}
-      </h2>
+        <img
+          src={titleSrc}
+          alt={titleAlt}
+          className="h-10 w-auto md:h-12"
+        />
+      </div>
       <div className="grid grid-cols-2 gap-4 md:grid-cols-3 md:gap-6">
         {images.map((src, i) => (
           <div
@@ -59,8 +63,8 @@ export default function HomePage() {
           <Image
             src={homeImages.hero}
             alt="Tattoos For Your Enemies"
-            width={1229}
-            height={1536}
+            width={768}
+            height={893}
             className="h-auto w-full object-contain"
             unoptimized
             priority
@@ -69,16 +73,21 @@ export default function HomePage() {
       </section>
 
       <SectionGrid
-        title="Tattoos"
+        titleSrc={sectionTitles.tattoos}
+        titleAlt="Tattoos"
         images={homeImages.tattoos}
         viewMoreHref="/tattoos"
       />
 
       <section className="mx-auto max-w-6xl px-4 py-12">
         <div className="flex flex-col gap-8 md:flex-row md:items-start">
-          <h2 className="min-w-[200px] text-2xl font-bold uppercase tracking-tight text-black drop-shadow-[0_0_20px_rgba(0,0,0,0.06)] md:text-3xl">
-            Flash
-          </h2>
+          <div className="flex min-w-[140px] justify-center md:justify-start">
+            <img
+              src={sectionTitles.flash}
+              alt="Flash"
+              className="h-10 w-auto md:h-12"
+            />
+          </div>
           <div className="flex-1">
             <div className="grid grid-cols-2 gap-4 md:grid-cols-3 md:gap-6">
               {homeImages.flash.map((src, i) => (
@@ -110,7 +119,8 @@ export default function HomePage() {
       </section>
 
       <SectionGrid
-        title="Illustrations"
+        titleSrc={sectionTitles.illustrations}
+        titleAlt="Illustrations"
         images={homeImages.illustrations}
         viewMoreHref="/illustrations"
       />
