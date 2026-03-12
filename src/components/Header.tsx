@@ -14,15 +14,15 @@ export default function Header() {
 
   return (
     <>
-      <header className="flex flex-col items-center pt-6 pb-2 px-4">
-        <Link href="/home">
-          <Image src={titleLogo} alt="Tattoos For Your Enemies" className="w-full max-w-md mb-2" width={400} height={120} />
+      <header className="flex flex-row md:flex-col justify-between md:justify-start items-center pt-6 pb-2 px-4">
+        <Link href="/home" className="shrink-0 mb-0 md:mb-2">
+          <Image src={titleLogo} alt="Tattoos For Your Enemies" className="w-full max-w-[180px] md:max-w-md" width={400} height={120} />
         </Link>
         <a
           href="https://instagram.com/tattoosforyourenemies"
           target="_blank"
           rel="noopener noreferrer"
-          className="text-foreground hover:text-muted-foreground transition-colors mb-4"
+          className="text-foreground hover:text-muted-foreground transition-colors shrink-0 mb-0 md:mb-4"
         >
           <Instagram size={46} strokeWidth={1.5} />
         </a>
@@ -42,7 +42,7 @@ export default function Header() {
         </nav>
 
         <button
-          className="md:hidden hover:opacity-70 transition-opacity"
+          className="md:hidden shrink-0 hover:opacity-70 transition-opacity"
           onClick={() => setMobileMenuOpen(true)}
         >
           <Image src={mobileMenuIcon} alt="Menu" className="h-8 w-auto object-contain" width={32} height={32} />
