@@ -13,18 +13,18 @@ export default function SplashPage() {
   const router = useRouter();
 
   return (
-    <div className="min-h-screen bg-white flex flex-col items-center justify-center">
+    <div className="min-h-screen bg-white flex flex-col items-center justify-center pb-12 md:pb-0">
       <video
         autoPlay
         muted
         loop
         playsInline
-        className="w-full h-[80vh] object-cover md:w-[70vw] md:h-auto md:max-w-[1000px] md:object-contain"
+        className="w-full max-h-[70vh] object-cover md:max-h-none md:w-[70vw] md:h-auto md:max-w-[1000px] md:object-contain"
         src={SPLASH_VIDEO_SRC}
       />
       <button
         onClick={() => router.push("/home")}
-        className="mt-4 md:mt-6 hover:opacity-80 transition-opacity"
+        className="mt-4 md:mt-6 shrink-0 hover:opacity-80 transition-opacity"
       >
         <Image src={enterButton} alt="Enter Site" className="h-12 md:h-16 w-auto" width={120} height={64} />
       </button>
