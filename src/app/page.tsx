@@ -19,12 +19,12 @@ export default function SplashPage() {
         muted
         loop
         playsInline
-        className="w-[95vw] md:w-[70vw] max-w-[1000px]"
+        className="w-full h-[80vh] object-cover md:w-[70vw] md:h-auto md:max-w-[1000px] md:object-contain"
         src={SPLASH_VIDEO_SRC}
       />
       <button
         onClick={() => router.push("/home")}
-        className="mt-6 hover:opacity-80 transition-opacity"
+        className="mt-4 md:mt-6 hover:opacity-80 transition-opacity"
       >
         <Image src={enterButton} alt="Enter Site" className="h-12 md:h-16 w-auto" width={120} height={64} />
       </button>
